@@ -20,8 +20,6 @@ def ingest_data():
     df = pd.DataFrame()
     with open('./clusters_report.txt') as f:
         for line in f:
-            
-
             line = re.sub(r"\s+", " ", line)
             if len(line)>1 and i > 3:
                 if line.split()[0].isnumeric() == True:
