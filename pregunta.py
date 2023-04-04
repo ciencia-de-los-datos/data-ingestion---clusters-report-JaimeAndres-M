@@ -25,7 +25,7 @@ def ingest_data():
                 if line.split()[0].isnumeric() == True:
                     try: 
                         dict1['principales_palabras_clave'] = ' '.join(dict1['principales_palabras_clave'])
-                        df = df.append(dict1, ignore_index=True)
+                        df = df._append(dict1, ignore_index=True)
                     except: pass
                     dict1 = {'cluster': int(line.split()[0]),
                                 'cantidad_de_palabras_clave': int(line.split()[1]),
@@ -35,7 +35,7 @@ def ingest_data():
                     dict1['principales_palabras_clave'].append(' '.join(line.split()))
             i += 1
     dict1['principales_palabras_clave'] = ' '.join(dict1['principales_palabras_clave'])
-    df = df.append(dict1, ignore_index=True)
+    df = df._append(dict1, ignore_index=True)
     df['principales_palabras_clave'] = df['principales_palabras_clave'].str.rstrip('\.')
 
     return df
